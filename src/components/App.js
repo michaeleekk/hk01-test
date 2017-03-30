@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 
-import BlogListing from './blog_listing'
+import BlogListingContainer from '../containers/blog_listing'
 
 class App extends Component {
   render() {
@@ -257,7 +257,7 @@ class App extends Component {
                         </div>
                     </div>
                     <div>
-                      <BlogListing />
+                      <BlogListingContainer />
                     </div>
                 </div>
                 <div className="sidebar">
