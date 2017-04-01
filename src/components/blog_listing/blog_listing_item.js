@@ -14,7 +14,7 @@ import React from 'react'
   ]
 */
 export default function BlogListingItem({ article }) {
-  const imageSrc = `./hk01_files/${article.image}`
+  const imageSrc = `/hk01_files/${article.image}`
   const isEditorPick = article.is_editor_pick ?
     <div className="editor_pick">精選</div> :
     null

@@ -2,12 +2,17 @@
   "name": "hk01-test",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.15.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "multer": "^1.3.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-infinite-scroller": "^1.0.7",
     "react-redux": "^5.0.3",
+    "react-router-dom": "^4.0.0",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.0",
     "redux-thunk": "^2.2.0"
@@ -22,6 +27,7 @@
     "babel-runtime": "^6.20.0",
     "case-sensitive-paths-webpack-plugin": "1.1.4",
     "chalk": "1.1.3",
+    "concurrently": "^3.4.0",
     "connect-history-api-fallback": "1.3.0",
     "cross-spawn": "4.0.2",
     "css-loader": "0.26.1",
@@ -53,9 +59,12 @@
     "whatwg-fetch": "2.0.2"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "concurrently \"yarn server\" \"yarn client\"",
+    "server": "node api/index.js",
+    "client": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "lint": "eslint ."
   },
   "jest": {
     "collectCoverageFrom": [
