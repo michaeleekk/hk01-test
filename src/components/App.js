@@ -18,6 +18,7 @@ class App extends Component {
         </div>
 
         <Route exact path="/" component={BlogView} />
+        <Route path="/(channel|section|blogger|photostory)" component={BlogView} />
         <Route path="/member/login" component={LoginView} />
         <Route path="/member/registration" component={RegistrationView} />
 
