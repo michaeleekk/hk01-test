@@ -33,6 +33,7 @@ app.get('/api/articles', (req, res) => {
     res.json(articles)
   } catch(err) {
     console.log('[GET articles]', err.message)
+    res.status(402)
     res.json({ error: 'Something occured.' })
   }
 })
@@ -43,7 +44,9 @@ app.post('/api/users', (req, res) => {
 
   try {
     User.addUser({ email, password })
+    res.json({ success: true })
   } catch(err) {
+    res.status(402)
     res.json({ error: err.message })
   }
 })
@@ -56,6 +59,7 @@ app.post('/api/users/login', (req, res) => {
     const token = Session.login({ email, password })
     res.json({ token })
   } catch(err) {
+    res.status(402)
     res.json({ error: err.message })
   }
 })
