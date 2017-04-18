@@ -20,6 +20,13 @@ export function updateLoginFields(fields) {
   }
 }
 
+export const CLEAR_LOGIN_FIELDS = 'CLEAR_LOGIN_FIELDS'
+export function clearLoginFields(fields) {
+  return {
+    type: CLEAR_LOGIN_FIELDS,
+  }
+}
+
 export function login(loginForm) {
   return function(dispatch) {
     dispatch(setErrorMessage(''))
@@ -54,6 +61,7 @@ export function logout() {
       cookie.remove('token', { path: '/' })
       dispatch(setIsLoggedIn(false))
       dispatch(push('/'))
+      dispatch(clearLoginFields())
     })
     .catch(error => {
       if (error.response && error.response.data && error.response.data.error) {

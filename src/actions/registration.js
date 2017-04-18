@@ -17,6 +17,13 @@ export function updateRegistrationFields(fields) {
   }
 }
 
+export const CLEAR_REGISTRATION_FIELDS = 'CLEAR_REGISTRATION_FIELDS'
+export function clearRegistrationFields(fields) {
+  return {
+    type: CLEAR_REGISTRATION_FIELDS,
+  }
+}
+
 export function register(registrationForm) {
   return function(dispatch) {
     if (registrationForm.password !== registrationForm.confirm_password) {
@@ -29,6 +36,7 @@ export function register(registrationForm) {
     axios.post('/api/users', registrationForm)
     .then(response => {
       dispatch(push('/'))
+      dispatch(clearRegistrationFields())
     })
     .catch(error => {
       if (error.response.data && error.response.data.error) {

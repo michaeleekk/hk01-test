@@ -1,4 +1,4 @@
-import { SET_ERROR_MESSAGE, UPDATE_LOGIN_FIELDS } from '../actions'
+import { SET_ERROR_MESSAGE, CLEAR_LOGIN_FIELDS, UPDATE_LOGIN_FIELDS } from '../actions'
 
 function error(state = '', action) {
   switch (action.type) {
@@ -16,6 +16,8 @@ function fields(state = {}, action) {
         ...state,
         ...action.fields,
       }
+    case CLEAR_LOGIN_FIELDS:
+      return {}
     default:
       return state
   }
@@ -26,6 +28,7 @@ function loginForm(state = {
   fields: {},
 }, action) {
   switch (action.type) {
+    case CLEAR_LOGIN_FIELDS:
     case UPDATE_LOGIN_FIELDS:
       return {
         ...state,

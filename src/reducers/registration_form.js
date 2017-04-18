@@ -1,4 +1,4 @@
-import { SET_REGISTRATION_ERROR_MESSAGE, UPDATE_REGISTRATION_FIELDS } from '../actions'
+import { SET_REGISTRATION_ERROR_MESSAGE, CLEAR_REGISTRATION_FIELDS, UPDATE_REGISTRATION_FIELDS } from '../actions'
 
 function error(state = '', action) {
   switch (action.type) {
@@ -16,6 +16,8 @@ function fields(state = {}, action) {
         ...state,
         ...action.fields,
       }
+    case CLEAR_REGISTRATION_FIELDS:
+      return {}
     default:
       return state
   }
@@ -26,6 +28,7 @@ function registrationForm(state = {
   fields: {},
 }, action) {
   switch (action.type) {
+    case CLEAR_REGISTRATION_FIELDS:
     case UPDATE_REGISTRATION_FIELDS:
       return {
         ...state,
