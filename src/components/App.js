@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
 
-import Header from './header'
+import Header from '../containers/header'
 import Footer from './footer'
 import BlogView from './blog_view'
 import LoginView from '../containers/login_view'

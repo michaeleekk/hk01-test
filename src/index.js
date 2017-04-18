@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { compose, createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware, ConnectedRouter as Router } from 'react-router-redux'
@@ -20,7 +20,6 @@ if (process.env.NODE_ENV === `development`) {
 }
 middlewares.push(routerMiddleware(history))
 
-// const store = compose(applyMiddleware(...middlewares))(createStore)(Reducers)
 const store = createStore(
   Reducers,
   applyMiddleware(...middlewares)

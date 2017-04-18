@@ -1,7 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Header() {
+function MemberButton({ isLoggedIn, onLogout }) {
+  if (isLoggedIn) {
+    return (
+      <a href="#" onClick={onLogout}>
+        Logout
+      </a>
+    )
+  }
+
+  return (
+    <a id="popup_member">
+        <div className="member_btn">
+            <span></span>會員登入 </div>
+    </a>
+  )
+}
+
+function View({ isLoggedIn, onLogout }) {
   return (
     <header className=" nocontent">
         <div className="menu__top">
@@ -18,10 +35,7 @@ function Header() {
                         <a id="popup_search">
                             <div className="search"><span></span></div>
                         </a>
-                        <a id="popup_member">
-                            <div className="member_btn">
-                                <span></span>會員登入 </div>
-                        </a>
+                        <MemberButton isLoggedIn={isLoggedIn} onLogout={onLogout} />
                     </div>
                 </div>
                 <div className="menu__top__member menu__top_popup">
@@ -222,4 +236,4 @@ function Header() {
   )
 }
 
-export default Header
+export default View
