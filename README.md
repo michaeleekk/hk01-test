@@ -1,11 +1,10 @@
 HK01 Offsite Test
 =================
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 ## Prerequisite
 
-- [node.js](https://nodejs.org/)
+- [node.js 6.9+](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com)
 
 ## Get started
 
